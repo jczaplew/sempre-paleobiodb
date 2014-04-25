@@ -3,19 +3,30 @@
     <tr>
       <th>Link</th>
       <th>Quality</th>
+      <th>Best result?</th>
     </tr>
   </thead>
   <tbody>
     {{#candidates}}
     <tr>
       <td>
-        <a href="{{url}}">{{url}}</a>
+        <a href="{{url}}" class="resultLink" id="link{{index}}">{{url}}</a>
       </td>
       <td class="stars">
         {{#stars}}
         <i class="fa fa-star"></i>
         {{/stars}}
       </td>
+      <td>
+        <input type="checkbox" class="best" value="{{index}}">
+      </td>
     {{/candidates}}
+    <tr>
+      <td id="noMatches">None of these results reflect the search</td>
+      <td class="stars"></td>
+      <td>
+        <input type="checkbox" value="-1">
+      </td>
+    </tr>
   </tbody>
 </table>
