@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Sempre PaleobioDB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 header">
+          <h1>Sempre <small>PaleobioDB</small></h1>
+          <p>Natural language query tool for PaleobioDB</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <form role="form">
+            <div class="form-group">
+              <label for="search" class="sr-only">Enter a natural language query</label>
+              <input type="text" name="search" id="search" class="form-control input-lg" placeholder="Example: Earliest bird in Spain">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12" id="results"></div>
+      </div>
+        
+    </div>
+
+    <script src="js/zepto.min.js"></script>
+    <script src="js/mustache.js"></script>
+    <script src="js/script.js"></script>
+    
+  </body>
+</html>

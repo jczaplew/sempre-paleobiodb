@@ -1,0 +1,21 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Link</th>
+      <th>Quality</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#candidates}}
+    <tr>
+      <td>
+        <a href="{{url}}">{{url}}</a>
+      </td>
+      <td class="stars">
+        {{#stars}}
+        <i class="fa fa-star"></i>
+        {{/stars}}
+      </td>
+    {{/candidates}}
+  </tbody>
+</table>

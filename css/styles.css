@@ -1,0 +1,14 @@
+label {
+  font-weight: 300;
+}
+.header {
+  text-align: center;
+  color: #777;
+}
+.header > h1 {
+  color: #046380;
+  letter-spacing: 2px;
+}
+.stars {
+  min-width: 100px;
+}
