@@ -49,6 +49,10 @@
     search: function(event) {
       event.preventDefault();
 
+      // Show the loading indicator
+      $("#loading").css("display", "block");
+
+      // Get the current query
       var query = $("[name=search]").val();
 
       $.getJSON("http://chaconne.stanford.edu:8500/sempre?q=" + query.replace(/ /g, "+") + "&format=json", function(results) {
@@ -61,8 +65,10 @@
         });
 
         var output = Mustache.render(search.template, results);
+        $("#loading").css("display", "none");
         $("#results").html(output);
 
+        // Rebind event handlers for dynamic content
         search.rebindEvents();
 
         return false;

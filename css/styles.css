@@ -15,3 +15,9 @@ label {
 #noMatches {
   color: #a94442;
 }
+#loading {
+  text-align: center;
+  color: #ddd;
+  margin-top: 60px;
+  display: none;
+}
