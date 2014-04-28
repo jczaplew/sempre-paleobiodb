@@ -12,6 +12,9 @@ label {
 .stars {
   min-width: 100px;
 }
+.bestCheckbox {
+  text-align: center;
+}
 #noMatches {
   color: #a94442;
 }
