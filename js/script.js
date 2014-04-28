@@ -34,13 +34,18 @@
       });
       // Handler for best result checkboxes
       $("input[type=checkbox]").on("change", function(e) {
+        // Uncheck and unhighlight any rows that may have been previously selected
         $("input[type=checkbox").prop("checked", false);
+        $(".success").removeClass("success");
 
         var checked = $(e.target),
             best = checked.val(),
             currentSearch = $("[name=search]").val();
 
         checked.prop("checked", true);
+
+        // Add green highlight to selected row
+        checked.parent().parent().addClass("success");
 
         // let sempre know which is the best result
         $.get("http://chaconne.stanford.edu:8500/sempre?q=" + currentSearch + "&accept=" + best, function(done) {
@@ -61,14 +66,22 @@
 
       $.getJSON("http://chaconne.stanford.edu:8500/sempre?q=" + query.replace(/ /g, "+") + "&format=json", function(results) {
 
-        results.candidates.forEach(function(d, i) {
-          d.stars = search.getStars(d.prob);
+        var data = { "valid": [], "candidates": [] };
 
-          // Mustache can't access the index, so we have to do this
-          d.index = i;
+        results.candidates.forEach(function(d, i) {
+          if (data.valid.indexOf(d.url) < 0) {
+            d.stars = search.getStars(d.prob);
+
+            // Mustache can't access the index, so we have to do this
+            d.index = i;
+
+            data.valid.push(d.url);
+            data.candidates.push(d);
+          }
+
         });
 
-        var output = Mustache.render(search.template, results);
+        var output = Mustache.render(search.template, data);
         $("#loading").css("display", "none");
         $("#results").html(output);
 
